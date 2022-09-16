@@ -4,7 +4,7 @@ const listaProductos = [
         categoria: 'RECETADOS',
         modelo: 'GOTTE',
         precio: 11000,
-        img: '/images/rusty/gotte.jpg',
+        img: 'images/rusty/gotte.jpg',
         cantidad: 1
     },
     {
@@ -12,7 +12,7 @@ const listaProductos = [
         categoria: 'RECETADOS',
         modelo: 'VIENET',
         precio: 15000,
-        img: '/images/rusty/vienet.jpg',
+        img: 'images/rusty/vienet.jpg',
         cantidad: 1
     },
     {
@@ -20,7 +20,7 @@ const listaProductos = [
         categoria: 'RECETADOS',
         modelo: 'THER',
         precio: 18500,
-        img: '/images/rusty/ther.jpg',
+        img: 'images/rusty/ther.jpg',
         cantidad: 1
     },
     {
@@ -28,7 +28,7 @@ const listaProductos = [
         categoria: 'SOL',
         modelo: 'CALLED',
         precio: 18000,
-        img: '/images/rusty/called.jpg',
+        img: 'images/rusty/called.jpg',
         cantidad: 1
     },
     {
@@ -36,7 +36,7 @@ const listaProductos = [
         categoria: 'SOL',
         modelo: 'CREDIX',
         precio: 20000,
-        img: '/images/rusty/credix.jpg',
+        img: 'images/rusty/credix.jpg',
         cantidad: 1
     },
     {
@@ -44,7 +44,7 @@ const listaProductos = [
         categoria: 'SOL',
         modelo: 'SPELL',
         precio: 25000,
-        img: '/images/rusty/spell.jpg',
+        img: 'images/rusty/spell.jpg',
         cantidad: 1
     },
     {
@@ -52,7 +52,7 @@ const listaProductos = [
         categoria: 'DEPORTIVOS',
         modelo: 'SOTION',
         precio: 24000,
-        img: '/images/rusty/sotion.jpg',
+        img: 'images/rusty/sotion.jpg',
         cantidad: 1
     },
     {
@@ -60,7 +60,7 @@ const listaProductos = [
         categoria: 'DEPORTIVOS',
         modelo: 'ESLAV',
         precio: 30000,
-        img: '/images/rusty/eslav.jpg',
+        img: 'images/rusty/eslav.jpg',
         cantidad: 1
     },
     {
@@ -68,7 +68,7 @@ const listaProductos = [
         categoria: 'DEPORTIVOS',
         modelo: 'YAU',
         precio: 21000,
-        img: '/images/rusty/yau.jpg',
+        img: 'images/rusty/yau.jpg',
         cantidad: 1
     },
 ];
