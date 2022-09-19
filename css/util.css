@@ -1,6 +1,7 @@
 
 
 /*//////////////////////////////////////////////////////////////////
+
 [ REBOOT ]*/
 *, *:before, *:after {
 	margin: 0px; 
@@ -9,6 +10,17 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+/* //////////// */
+
+.botonCantidad{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* /////////// */
 
 body, html {
 	font-family: Arial, sans-serif;
