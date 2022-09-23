@@ -1,6 +1,6 @@
 // Agregar productos en html dinamicamente
 
-const carrito = [];
+let carrito = [];
 let totalCarrito = 0;
 let cantProdEnCarrito = 0;
 
@@ -110,11 +110,15 @@ const agregarAlCarrito = (id) => {
   } else {
     producto.cantidad = 1;
     carrito.push(producto);
+    // alert('Producto agregado al carrito exitosamente!');
   }
   cantProdEnCarrito++;
   precioTotalDeCompra();
   renderizarCarrito();
   cantidadProductos();
+  setCarritoStorage(carrito);
+  setCantidadProductos(cantProdEnCarrito);
+  
 };
 
 const eliminarDelCarrito = (index) => {
@@ -127,6 +131,8 @@ const eliminarDelCarrito = (index) => {
   cantProdEnCarrito--;
 
   renderizarCarrito();
+  setCarritoStorage(carrito);
+  setCantidadProductos(cantProdEnCarrito);
 };
 
 const precioTotalDeCompra = () => {
@@ -157,4 +163,3 @@ const cantidadProductos = () => {
 `;
 };
 
-cantidadProductos();

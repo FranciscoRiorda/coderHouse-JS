@@ -82,7 +82,7 @@
                         $(layerCurrentItem[index]).addClass($(layerCurrentItem[index]).data('appear') + ' visible-true');
                     },$(layerCurrentItem[i]).data('delay'),i); 
                 }
-                         
+
             });
 
         });
