@@ -49,7 +49,7 @@ const pintarProducto = () => {
     contenedor.appendChild(div);
 
     div.querySelector(".block2-btn").addEventListener("click", () => {
-      agregarAlCarrito(producto.id);
+      agregarAlCarrito(producto.id);  
     });
   });
 };
@@ -162,4 +162,6 @@ const cantidadProductos = () => {
     </div>
 `;
 };
+
+
 
