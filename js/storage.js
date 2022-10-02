@@ -3,7 +3,7 @@ const setCarritoStorage = (carrito) => {
 }
 
 const getCarritoStorage = () => {
-    const carritoStorage = JSON.parse(localStorage.getItem('carrito'));
+    const carritoStorage = JSON.parse(localStorage.getItem('carrito')) || [];
     return carritoStorage;
 }
 

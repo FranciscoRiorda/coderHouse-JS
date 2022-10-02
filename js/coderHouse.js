@@ -157,6 +157,8 @@
 //     alert(`Detalle de su compra: \n - Cantidad total unidades compradas: ${cantidadProductos} \n \n - Lista de productos comprados: \n ${listaFinalDeCompra} \n \n - Monto total a abonar: $${montoTotal}`);
 
 
+//////////////////////////////////////  PRIMERA ENTREGA /////////////////////////////////////////
+
 
 
 

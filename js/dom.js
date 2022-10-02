@@ -7,15 +7,16 @@ let cantProdEnCarrito = 0;
 const pintarProducto = () => {
   const contenedor = document.getElementById("card");
 
-  listaProductos.forEach((producto) => {
+  contenedor.innerHTML = "";
+
+  listaProductosConFiltro.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add(
       "col-sm-6",
       "col-md-4",
       "col-lg-3",
       "p-b-35",
-      "isotope-item",
-      "women"
+      "isotope-item"
     );
     div.innerHTML = `<div class="block2">
                             <div class="block2-pic hov-img0">
@@ -49,7 +50,7 @@ const pintarProducto = () => {
     contenedor.appendChild(div);
 
     div.querySelector(".block2-btn").addEventListener("click", () => {
-      agregarAlCarrito(producto.id);  
+      agregarAlCarrito(producto.id);
     });
   });
 };
@@ -68,12 +69,10 @@ const renderizarCarrito = () => {
                     <div class="header-cart-item-img">
                         <img src="${producto.img}" alt="IMG">
                     </div>
-
                     <div class="header-cart-item-txt p-t-8 ">
                         <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
                             ${producto.modelo}
                         </a>
-
                         <span class="header-cart-item-info">
                             ${producto.cantidad} x $${producto.precio} c/u
                         </span>
@@ -100,40 +99,6 @@ const renderizarCarrito = () => {
   });
 };
 
-const agregarAlCarrito = (id) => {
-  let producto = listaProductos.find((producto) => producto.id === id);
-
-  let productoEnCarrito = carrito.find((producto) => producto.id === id);
-
-  if (productoEnCarrito) {
-    productoEnCarrito.cantidad++;
-  } else {
-    producto.cantidad = 1;
-    carrito.push(producto);
-    // alert('Producto agregado al carrito exitosamente!');
-  }
-  cantProdEnCarrito++;
-  precioTotalDeCompra();
-  renderizarCarrito();
-  cantidadProductos();
-  setCarritoStorage(carrito);
-  setCantidadProductos(cantProdEnCarrito);
-  
-};
-
-const eliminarDelCarrito = (index) => {
-  carrito[index].cantidad--;
-
-  if (carrito[index].cantidad === 0) {
-    carrito.splice(index, 1);
-    totalCarrito = 0;
-  }
-  cantProdEnCarrito--;
-
-  renderizarCarrito();
-  setCarritoStorage(carrito);
-  setCantidadProductos(cantProdEnCarrito);
-};
 
 const precioTotalDeCompra = () => {
   totalCarrito = carrito.reduce(
@@ -162,6 +127,3 @@ const cantidadProductos = () => {
     </div>
 `;
 };
-
-
-
