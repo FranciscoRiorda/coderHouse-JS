@@ -10,6 +10,8 @@ const pintarProducto = () => {
   contenedor.innerHTML = "";
 
   listaProductosConFiltro.forEach((producto) => {
+    const { id, categoria, modelo, precio, img } = producto;
+
     const div = document.createElement("div");
     div.classList.add(
       "col-sm-6",
@@ -20,7 +22,7 @@ const pintarProducto = () => {
     );
     div.innerHTML = `<div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img src="${producto.img}" alt="IMG-PRODUCT">
+                                <img src="${img}" alt="IMG-PRODUCT">
     
                                 <a style="cursor:pointer; user-select: none;" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                     Agregar al carrito
@@ -29,12 +31,12 @@ const pintarProducto = () => {
     
                             <div class="block2-txt flex-w flex-t p-t-14">
                                 <div class="block2-txt-child1 flex-col-l ">
-                                    <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                    Categoría: ${producto.categoria} - ${producto.modelo}
+                                    <a  class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6" value="${id}">
+                                    Categoría: ${categoria} - ${modelo}
                                     </a>
     
                                     <span class="stext-105 cl3">
-                                        $${producto.precio}
+                                        $${precio}
                                     </span>
                                     </div>
     
@@ -46,11 +48,12 @@ const pintarProducto = () => {
                                 </div>
                             </div>
                         </div>`;
-
+                        // href="product-detail.html"
+                        
     contenedor.appendChild(div);
 
     div.querySelector(".block2-btn").addEventListener("click", () => {
-      agregarAlCarrito(producto.id);
+      agregarAlCarrito(id);
     });
   });
 };
@@ -63,18 +66,20 @@ const renderizarCarrito = () => {
   carritoHtml.innerHTML = "";
 
   carrito.forEach((producto, index) => {
+    const { id, modelo, precio, img, cantidad } = producto;
+
     const li = document.createElement("li");
     li.classList.add("header-cart-item", "flex-w", "flex-t", "m-b-12");
     li.innerHTML = `
                     <div class="header-cart-item-img">
-                        <img src="${producto.img}" alt="IMG">
+                        <img src="${img}" alt="IMG">
                     </div>
                     <div class="header-cart-item-txt p-t-8 ">
                         <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                            ${producto.modelo}
+                            ${modelo}
                         </a>
                         <span class="header-cart-item-info">
-                            ${producto.cantidad} x $${producto.precio} c/u
+                            ${cantidad} x $${precio} c/u
                         </span>
                         <div class="btn-toolbar btn-group-sm" role="toolbar" aria-label="Toolbar with button groups">
                             <button type="button" class="btn btn-outline-secondary eliminarProducto"> - </button>
@@ -86,18 +91,19 @@ const renderizarCarrito = () => {
     carritoHtml.appendChild(li);
 
     li.querySelector(".eliminarProducto").addEventListener("click", () => {
-      eliminarDelCarrito(index);
+      eliminarDelCarrito(index, id);
       precioTotalDeCompra();
       cantidadProductos();
     });
 
     li.querySelector(".agregarProducto").addEventListener("click", () => {
-      agregarAlCarrito(producto.id);
+      agregarAlCarrito(id);
       precioTotalDeCompra();
       cantidadProductos();
     });
   });
 };
+
 
 
 const precioTotalDeCompra = () => {
@@ -127,3 +133,7 @@ const cantidadProductos = () => {
     </div>
 `;
 };
+
+
+
+

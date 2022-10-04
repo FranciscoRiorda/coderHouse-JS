@@ -5,7 +5,7 @@ const listaProductos = [
         modelo: 'GOTTE',
         precio: 11000,
         img: 'images/rusty/gotte.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const listaProductos = [
         modelo: 'VIENET',
         precio: 15000,
         img: 'images/rusty/vienet.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const listaProductos = [
         modelo: 'THER',
         precio: 18500,
         img: 'images/rusty/ther.jpg',
-        cantidad: 1
+        color: 'Negro' || 'Dorado' || 'Rojo'
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const listaProductos = [
         modelo: 'CALLED',
         precio: 18000,
         img: 'images/rusty/called.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ const listaProductos = [
         modelo: 'CREDIX',
         precio: 20000,
         img: 'images/rusty/credix.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ const listaProductos = [
         modelo: 'SPELL',
         precio: 25000,
         img: 'images/rusty/spell.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 7,
@@ -53,7 +53,7 @@ const listaProductos = [
         modelo: 'SOTION',
         precio: 24000,
         img: 'images/rusty/sotion.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ const listaProductos = [
         modelo: 'ESLAV',
         precio: 30000,
         img: 'images/rusty/eslav.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
     {
         id: 9,
@@ -69,6 +69,6 @@ const listaProductos = [
         modelo: 'YAU',
         precio: 21000,
         img: 'images/rusty/yau.jpg',
-        cantidad: 1
+        color: 'Negro || Dorado || Rojo'
     },
 ];

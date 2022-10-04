@@ -4,17 +4,20 @@ const agregarAlCarrito = (id) => {
   
     let productoEnCarrito = carrito.find((producto) => producto.id === id);
 
-    let {modelo} = producto;  
+    const agregarProducto = {
+      ...producto,
+      cantidad: 1 
+    };
 
     if (productoEnCarrito) {
       productoEnCarrito.cantidad++;
     } else {
       producto.cantidad = 1;
-      carrito.push(producto);
+      carrito.push(agregarProducto);
     }
 
     Toastify({
-      text: `${modelo} Agregado al carrito`,
+      text: `${agregarProducto.modelo} Agregado al carrito`,
       className: "info",
       position: "left",
       gravity: "bottom",
@@ -29,18 +32,15 @@ const agregarAlCarrito = (id) => {
     cantidadProductos();
     setCarritoStorage(carrito);
     setCantidadProductos(cantProdEnCarrito);
+    
   };
   
-  const eliminarDelCarrito = (index) => {
+  const eliminarDelCarrito = (index, id) => {
 
-    let producto = carrito.find((producto) => producto)
+    let producto = carrito.find((producto) => producto.id === id)
 
-    let {modelo} = producto;  
-
-    console.log(producto)
-
-    carrito[index].cantidad !== 0 && Toastify({
-      text: `Se eliminó una unidad de ${modelo}`,
+    carrito[index].cantidad > 1 && Toastify({
+      text: `Se eliminó una unidad de ${producto.modelo}. Quedan ${producto.cantidad - 1}`,
       className: "info",
       position: "left",
       gravity: "bottom",
@@ -54,7 +54,7 @@ const agregarAlCarrito = (id) => {
     if (carrito[index].cantidad === 0) {
 
       Toastify({
-        text: `${modelo} se eliminó del carrito`,
+        text: `Ya no quedan productos ${producto.modelo} en el carrito`,
         className: "info",
         position: "left",
         gravity: "bottom",
@@ -71,6 +71,7 @@ const agregarAlCarrito = (id) => {
     renderizarCarrito();
     setCarritoStorage(carrito);
     setCantidadProductos(cantProdEnCarrito);
+    
   };
 
   
