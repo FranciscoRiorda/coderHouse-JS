@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("carrito")) {
     carrito = getCarritoStorage();
     renderizarCarrito(carrito);
+    renderizarFinDeCompra(carrito);
   }
 });
 

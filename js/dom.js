@@ -48,8 +48,8 @@ const pintarProducto = () => {
                                 </div>
                             </div>
                         </div>`;
-                        // href="product-detail.html"
-                        
+    // href="product-detail.html"
+
     contenedor.appendChild(div);
 
     div.querySelector(".block2-btn").addEventListener("click", () => {
@@ -57,8 +57,6 @@ const pintarProducto = () => {
     });
   });
 };
-
-pintarProducto();
 
 const renderizarCarrito = () => {
   let carritoHtml = document.querySelector(".modalCarrito");
@@ -104,8 +102,6 @@ const renderizarCarrito = () => {
   });
 };
 
-
-
 const precioTotalDeCompra = () => {
   totalCarrito = carrito.reduce(
     (acc, producto) => acc + producto.cantidad * producto.precio,
@@ -134,6 +130,72 @@ const cantidadProductos = () => {
 `;
 };
 
+const renderizarFinDeCompra = () => {
+  
+  let finDeCompra = document.querySelector(".wrap-table-shopping-cart");
+  
+  finDeCompra.innerHTML = "";
 
+  console.log(carrito)
 
+  carrito.forEach((producto, index) => {
 
+    const {id, categoria, modelo, precio, img, cantidad} = producto;
+    let precioPorModelo = cantidad * precio;
+    
+    const table = document.createElement("table");
+    table.classList.add('table-shopping-cart')
+    table.innerHTML = `
+                <tr class="table_head">
+									<th class="column-1">Producto</th>
+									<th class="column-2"></th>
+									<th class="column-3">Precio</th>
+									<th class="column-4">Cantidad</th>
+									<th class="column-5">Total</th>
+								</tr>
+
+								<tr class="table_row">
+									<td class="column-11">
+										<div class="how-itemcart1">
+											<img src="${img}" alt="IMG">
+										</div>
+									</td>
+									<td class="column-2">Modelo: ${modelo}</td>
+									<td class="column-3">$${precio}</td>
+									<td class="column-4">
+										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m zmdi-minus2">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="${cantidad}">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m zmdi-plus2">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+									</td>
+									<td class="column-5">$${precioPorModelo}</td>
+								</tr>
+    `;
+
+    finDeCompra.appendChild(table);
+
+    table.querySelector(".zmdi-minus2").addEventListener("click", () => {
+      eliminarDelCarrito(index, id);
+      precioTotalDeCompra();
+      cantidadProductos();
+      renderizarFinDeCompra();
+    });
+
+    table.querySelector(".zmdi-plus2").addEventListener("click", () => {
+      agregarAlCarrito(id);
+      precioTotalDeCompra();
+      cantidadProductos();
+      renderizarFinDeCompra();
+    });
+
+  });
+};
+
+pintarProducto();
