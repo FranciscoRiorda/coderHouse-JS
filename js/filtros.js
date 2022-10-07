@@ -112,10 +112,10 @@ filtroCategoriaDeportivo.addEventListener('click', () => {
 })
 
 const buscarPorNombre = document.getElementById('buscarPorNombre');
-buscarPorNombre.addEventListener('change', (e) => {
+buscarPorNombre.addEventListener('input', (e) => {
     let nombre = e.target.value;
     nombre = nombre.toUpperCase();
-    listaProductosConFiltro = listaProductos.filter(producto => producto?.modelo === nombre);
+    listaProductosConFiltro = listaProductos.filter(producto => producto?.modelo.includes(nombre));
 
     pintarProducto();
     console.log(listaProductosConFiltro)

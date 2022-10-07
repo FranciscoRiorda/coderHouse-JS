@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     carrito = getCarritoStorage();
     renderizarCarrito(carrito);
     renderizarFinDeCompra(carrito);
+    precioTotalDeCompra();
+    precioFinDeCompra();
   }
 });
 

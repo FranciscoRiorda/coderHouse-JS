@@ -91,13 +91,17 @@ const renderizarCarrito = () => {
     li.querySelector(".eliminarProducto").addEventListener("click", () => {
       eliminarDelCarrito(index, id);
       precioTotalDeCompra();
+      precioFinDeCompra();
       cantidadProductos();
+      renderizarFinDeCompra();
     });
 
     li.querySelector(".agregarProducto").addEventListener("click", () => {
       agregarAlCarrito(id);
       precioTotalDeCompra();
+      precioFinDeCompra();
       cantidadProductos();
+      renderizarFinDeCompra();
     });
   });
 };
@@ -118,6 +122,22 @@ const precioTotalDeCompra = () => {
             `;
 
   totalCarritoHtml.appendChild(div);
+
+};
+
+const precioFinDeCompra = () => {
+
+  let totalCarritoHtml = document.querySelector(".subtotal");
+
+  totalCarritoHtml.innerHTML = "";
+
+  const div = document.createElement("div");
+  div.innerHTML = `
+                <span class="mtext-110 cl2"> $${totalCarrito}</span>
+            `;
+
+  totalCarritoHtml.appendChild(div);
+
 };
 
 const cantidadProductos = () => {
@@ -135,8 +155,6 @@ const renderizarFinDeCompra = () => {
   let finDeCompra = document.querySelector(".wrap-table-shopping-cart");
   
   finDeCompra.innerHTML = "";
-
-  console.log(carrito)
 
   carrito.forEach((producto, index) => {
 
@@ -184,6 +202,7 @@ const renderizarFinDeCompra = () => {
     table.querySelector(".zmdi-minus2").addEventListener("click", () => {
       eliminarDelCarrito(index, id);
       precioTotalDeCompra();
+      precioFinDeCompra();
       cantidadProductos();
       renderizarFinDeCompra();
     });
@@ -191,6 +210,7 @@ const renderizarFinDeCompra = () => {
     table.querySelector(".zmdi-plus2").addEventListener("click", () => {
       agregarAlCarrito(id);
       precioTotalDeCompra();
+      precioFinDeCompra();
       cantidadProductos();
       renderizarFinDeCompra();
     });
@@ -199,3 +219,4 @@ const renderizarFinDeCompra = () => {
 };
 
 pintarProducto();
+
