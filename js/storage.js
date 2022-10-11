@@ -1,3 +1,4 @@
+
 const setCarritoStorage = (carrito) => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
@@ -7,13 +8,12 @@ const getCarritoStorage = () => {
   return carritoStorage;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
   if (localStorage.getItem("carrito")) {
     carrito = getCarritoStorage();
     renderizarCarrito(carrito);
-    renderizarFinDeCompra(carrito);
     precioTotalDeCompra();
-    precioFinDeCompra();
   }
 });
 
@@ -29,11 +29,13 @@ const getCantidadProductos = () => {
   return cantidadProductos;
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
   if (localStorage.getItem("cantidadProductos")) {
     cantProdEnCarrito = getCantidadProductos();
     cantidadProductos();
   }
 });
+
 
 

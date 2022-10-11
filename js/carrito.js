@@ -1,8 +1,8 @@
-const agregarAlCarrito = (id) => {
-  
-    let producto = listaProductos.find((producto) => producto.id === id);
-  
-    let productoEnCarrito = carrito.find((producto) => producto.id === id);
+  const agregarAlCarrito = async (id) => {
+
+    const prod = await listaProductoController();
+    const producto = prod.find((producto) => producto.id === id);
+    const productoEnCarrito = carrito.find((producto) => producto.id === id);
 
     const agregarProducto = {
       ...producto,
@@ -15,7 +15,6 @@ const agregarAlCarrito = (id) => {
       producto.cantidad = 1;
       carrito.push(agregarProducto);
     }
-
     Toastify({
       text: `${agregarProducto.modelo} Agregado al carrito`,
       className: "info",
@@ -27,9 +26,10 @@ const agregarAlCarrito = (id) => {
     }).showToast();
 
     cantProdEnCarrito++;
-    precioTotalDeCompra();
+
     renderizarCarrito();
     cantidadProductos();
+    precioTotalDeCompra();
     setCarritoStorage(carrito);
     setCantidadProductos(cantProdEnCarrito);
     
@@ -74,4 +74,4 @@ const agregarAlCarrito = (id) => {
     
   };
 
-  
+
