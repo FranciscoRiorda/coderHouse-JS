@@ -99,7 +99,7 @@ const renderizarCarrito = () => {
   });
 };
 
-
+// cantidad de prod en notificaciones
 const cantidadProductos = () => {
   let notificacion = document.getElementById("notificacion");
 
@@ -110,6 +110,7 @@ const cantidadProductos = () => {
 `;
 };
 
+// precio total de modal de carrito
 const precioTotalDeCompra = () => {
   totalCarrito = carrito.reduce(
     (acc, producto) => acc + producto.cantidad * producto.precio,

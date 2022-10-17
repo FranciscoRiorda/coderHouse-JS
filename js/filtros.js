@@ -146,6 +146,5 @@ buscarPorNombre.addEventListener('input', async (e) => {
 
     const listaProductos = await listaProductoController();
     const listaProductosConFiltro = listaProductos.filter(producto => producto?.modelo.includes(nombre));
-
     pintarProducto(listaProductosConFiltro);
 })

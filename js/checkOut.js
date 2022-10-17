@@ -1,3 +1,16 @@
+let codigoCupon = '';
+
+const cupones = [
+  {
+    nombre: "fran10%",
+    descuento: 0.9,
+  },
+  {
+    nombre: "fran20%",
+    descuento: 0.8,
+  },
+];
+
 document.addEventListener("DOMContentLoaded", async () => {
   if (localStorage.getItem("carrito")) {
     carrito = getCarritoStorage();
@@ -6,14 +19,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-const precioFinDeCompra = () => {
+const precioFinDeCompra = async () => {
   let totalCarritoHtml = document.querySelector(".subtotal");
 
   totalCarritoHtml.innerHTML = "";
 
-  const div = document.createElement("div");
+  const div = await document.createElement("div");
   div.innerHTML = `
-                  <span class="mtext-110 cl2"> $${totalCarrito}</span>
+                  <span class="mtext-110 cl2"> $${totalCarrito}</span><br><br>
               `;
 
   totalCarritoHtml.appendChild(div);
@@ -125,7 +138,7 @@ const eliminarDelCarrito2 = (index, id) => {
       position: "left",
       gravity: "bottom",
       style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        background: "linear-gradient(to right,  #E74C3C, #000000)",
       },
     }).showToast();
 
@@ -138,7 +151,7 @@ const eliminarDelCarrito2 = (index, id) => {
       position: "left",
       gravity: "bottom",
       style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        background: "linear-gradient(to right,  #E74C3C, #000000)",
       },
     }).showToast();
 
@@ -154,4 +167,39 @@ const eliminarDelCarrito2 = (index, id) => {
   precioFinDeCompra();
   setCarritoStorage(carrito);
   setCantidadProductos(cantProdEnCarrito);
+};
+
+// Vaciar storage
+const procesarCompra = document.getElementById("procesarPago");
+procesarCompra.addEventListener("click", async () => {
+  Swal.fire({
+    title: "¿Finalizar Compra?",
+    icon: "warning",
+    text: `¿Estás seguro/a de procesar el pago?`,
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, procesar pago",
+    cancelButtonText: "No, volver atrás",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Compra finalizada con éxito!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        vaciarStorage();
+        recargarPag();
+      })
+    }
+  });
+});
+
+const vaciarStorage = () => {
+  localStorage.clear();
+};
+
+const recargarPag = () => {
+  location.reload();
 };

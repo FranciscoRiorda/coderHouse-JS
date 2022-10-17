@@ -45,7 +45,7 @@
       position: "left",
       gravity: "bottom",
       style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        background: "linear-gradient(to right, #E74C3C, #000000)",
       }
     }).showToast();
 
@@ -59,7 +59,7 @@
         position: "left",
         gravity: "bottom",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "linear-gradient(to right, #E74C3C, #000000)",
         }
       }).showToast();
 
