@@ -16,4 +16,4 @@ function validarFormulario(e) {
     alert(`Formulario enviado. \n\n Correo donde recibirá una respuesta: ${email} \n\n Tu consulta: ${mensaje}`);
 }
 
-/////////////////////////
+//////////////////////////
