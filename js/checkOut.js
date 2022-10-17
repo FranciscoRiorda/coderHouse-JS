@@ -189,5 +189,5 @@ const vaciarStorage = () => {
 };
 
 const recargarPag = () => {
-  location.reload();
+  window.location.href = "/index.html";
 };
