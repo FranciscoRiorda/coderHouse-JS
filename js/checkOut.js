@@ -169,7 +169,7 @@ const eliminarDelCarrito2 = (index, id) => {
   setCantidadProductos(cantProdEnCarrito);
 };
 
-// Vaciar storage
+// Vaciar storage.
 const procesarCompra = document.getElementById("procesarPago");
 procesarCompra.addEventListener("click", async () => {
   Swal.fire({
