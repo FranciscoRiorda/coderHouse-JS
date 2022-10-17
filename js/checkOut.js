@@ -197,5 +197,5 @@ const vaciarStorage = () => {
 };
 
 const recargarPag = () => {
-  window.location.href = "/coderHouse-JS/index.html";
+  window.location.href = "./index.html";
 };
