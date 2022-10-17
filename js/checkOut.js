@@ -1,15 +1,3 @@
-let codigoCupon = '';
-
-const cupones = [
-  {
-    nombre: "fran10%",
-    descuento: 0.9,
-  },
-  {
-    nombre: "fran20%",
-    descuento: 0.8,
-  },
-];
 
 document.addEventListener("DOMContentLoaded", async () => {
   if (localStorage.getItem("carrito")) {
