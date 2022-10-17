@@ -160,10 +160,12 @@ const eliminarDelCarrito2 = (index, id) => {
 // Vaciar storage.
 const procesarCompra = document.getElementById("procesarPago");
 procesarCompra.addEventListener("click", async () => {
+
+  if(totalCarrito !== 0){
   Swal.fire({
     title: "¿Finalizar Compra?",
-    icon: "warning",
-    text: `¿Estás seguro/a de procesar el pago?`,
+    icon: "info",
+    text: `¿Estás seguro/a de procesar el pago? Total: $${totalCarrito}`,
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
@@ -182,6 +184,12 @@ procesarCompra.addEventListener("click", async () => {
       })
     }
   });
+} else {
+  Swal.fire({
+    title: "No hay productos en el carrito",
+    icon: "warning"
+  })
+}
 });
 
 const vaciarStorage = () => {
